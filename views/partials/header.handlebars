@@ -1,0 +1,51 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <i class="bi bi-bootstrap" style="font-size: 2rem;"></i>
+            </a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-link" aria-current="page" href="/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="posts-link" href="/posts">Posts</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" id="tasks-link" href="/tasks">Tasks</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" id="assessment-link" href="/assessment">Assessment</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+    const pages = [ "home", "posts", "tasks", "assessment" ];
+    const path = window.location.pathname.split("/")[1];
+
+    let currentLink = "home-link";
+    if (pages.some(link => link === path)) {
+        currentLink = `${path}-link`;
+    }
+
+    for (const page of pages) {
+        const element = document.getElementById(`${page}-link`);
+        element.classList.remove("active");
+        element.removeAttribute("aria-current");
+    }
+
+    const currentLinkElement = document.getElementById(currentLink);
+    currentLinkElement.classList.add("active");
+    currentLinkElement.setAttribute("aria-current", "page");
+</script>

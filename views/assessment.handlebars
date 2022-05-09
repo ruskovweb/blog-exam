@@ -1,0 +1,55 @@
+<h3>Точки</h3>
+<p>Всяка задача дава определен брой точки.</p>
+
+<div class="card mb-5">
+    <div class="card-body">
+        <table class="table table-borderless table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Задача</th>
+                <th scope="col">Точки</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tasks}}
+                <tr>
+                    <th scope="row">{{this.id}}</th>
+                    <td><a href="/tasks#task-{{this.id}}" class="text-decoration-none link-dark">{{this.task}}</a></td>
+                    <td>{{this.points}}</td>
+                </tr>
+            {{/each}}
+
+            <tr class="table-warning">
+                <td></td>
+                <td style="text-align: right;">Общо:</td>
+                <td>{{totalPoints}}</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+
+<h3>Оценяване</h3>
+<p>Общия брой точки образува вашата оценка.</p>
+
+<div class="card mb-5">
+    <div class="card-body">
+        <table class="table table-borderless table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Точки от-до</th>
+                <th scope="col">Оценка</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each marks}}
+            <tr>
+                <td>{{this.points}}</td>
+                <td>{{this.mark}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+        </table>
+    </div>
+</div>

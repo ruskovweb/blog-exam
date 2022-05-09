@@ -1,5 +1,6 @@
 import express from "express";
 import { engine } from 'express-handlebars';
+import routes from "./routes.js";
 
 const PORT = 8080;
 const app = express();
@@ -9,7 +10,7 @@ app.set('view engine', 'handlebars');
 app.set('views', './views');
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 

@@ -13,6 +13,6 @@ app.use(express.urlencoded());
 
 app.use(routes);
 
-app.listen(PORT, function(req, res) {
+app.listen(PORT, function() {
     console.log(`The server is listening on port ${PORT}`);
 });

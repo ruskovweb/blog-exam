@@ -1,0 +1,23 @@
+{
+  "name": "blog-exam",
+  "version": "1.0.0",
+  "description": "Blog app for examination purposes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruskovweb/blog-exam.git"
+  },
+  "keywords": [
+    "blog",
+    "exam"
+  ],
+  "author": "Dimitar Ruskov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruskovweb/blog-exam/issues"
+  },
+  "homepage": "https://github.com/ruskovweb/blog-exam#readme"
+}

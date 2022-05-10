@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "test:chrome": "npx nightwatch tests --env chrome",
-    "test:firefox": "npx nightwatch tests --env firefox"
+    "tests:chrome": "npx nightwatch tests --env chrome",
+    "tests:firefox": "npx nightwatch tests --env firefox"
   },
   "repository": {
     "type": "git",

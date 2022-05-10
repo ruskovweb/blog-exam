@@ -22,25 +22,25 @@ app.get("/tasks", function(req, res) {
 
 app.get("/assessment", function(req, res) {
     const tasks = [
-        { id: 1, task: "Визуализиране на всички публикации", points: 5 },
-        { id: 2, task: "Визуализиране на страница за създаване на публикация", points: 5 },
-        { id: 3, task: "Създаване на публикация", points: 20 },
-        { id: 4, task: "Визуализиране на страница за детайлите на една публикация", points: 10 },
-        { id: 5, task: "Визуализиране на страница за редактиране на публикация", points: 10 },
-        { id: 6, task: "Редактиране на публикация", points: 35 },
-        { id: 7, task: "Визуализиране на страница за изтриване на публикация", points: 10 },
-        { id: 8, task: "Изтриване на публикация", points: 25 },
+        { id: 1, task: "Визуализиране на всички публикации", points: 20 },
+        { id: 2, task: "Визуализиране на страница за създаване на публикация", points: 15 },
+        { id: 3, task: "Създаване на публикация", points: 19 },
+        { id: 4, task: "Визуализиране на страница за детайлите на една публикация", points: 11 },
+        { id: 5, task: "Визуализиране на страница за редактиране на публикация", points: 17 },
+        { id: 6, task: "Редактиране на публикация", points: 23 },
+        { id: 7, task: "Визуализиране на страница за изтриване на публикация", points: 13 },
+        { id: 8, task: "Изтриване на публикация", points: 14 },
     ];
 
     const totalPoints = tasks.reduce((acc, value) => acc + value.points, 0);
 
     const marks = [
-        { points: " 0 - 19", mark: 2 },
-        { points: "20 - 39", mark: 3 },
-        { points: "40 - 59", mark: 4 },
-        { points: "60 - 79", mark: 5 },
-        { points: "80 - 99", mark: 6 },
-        { points: "100 - 120", mark: "6+" },
+        { points: " 0 - 20", mark: 2 },
+        { points: "21 - 40", mark: 3 },
+        { points: "41 - 60", mark: 4 },
+        { points: "61 - 80", mark: 5 },
+        { points: "81 - 100", mark: 6 },
+        { points: "101 - 132", mark: "6+" },
     ];
 
     res.render("assessment", { tasks, marks, totalPoints });

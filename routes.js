@@ -7,7 +7,7 @@ let posts = [
     {
         id: 1,
         title: "This is my first blog post",
-        description: "Hello to my first blog post!"
+        description: "Hello and Welcome to my first blog post!"
     }
 ];
 

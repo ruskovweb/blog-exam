@@ -4,26 +4,33 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="task-1">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
-          1. Визуализиране на всички публикации <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">5</span>
+        1. Визуализиране на всички публикации <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">5</span>
       </button>
     </h2>
     <div id="collapse-1" class="accordion-collapse collapse" aria-labelledby="task-1" data-bs-parent="#accordion">
       <div class="accordion-body">
-        <p>При <span class="badge bg-dark">GET</span> заявка на адрес <span class="badge bg-dark">/posts</span> трябва да се визуализира таблица с всички публикации. Таблицата трябва да има общо 4 колони, в следната последователност - ID, Title, Description, Actions.
-        Actions полето трябва да съдържа три бутона:</p>
+        <p>При <span class="badge bg-primary">GET</span> заявка на адрес <span class="badge bg-primary">/posts</span> трябва да се визуализира таблица с всички публикации. Таблицата трябва да има общо 4 колони, в следната последователност - ID, Title, Description, Actions. Actions полето трябва да съдържа три бутона:</p>
         <ul class="list-group mb-3">
-            <li class="list-group-item"><span class="badge bg-info text-dark">Details</span> Светлосин бутон, който сочи към задача №4</li>
-            <li class="list-group-item"><span class="badge bg-warning text-dark">Update</span> Оранжев бутон, който сочи към задача №5</li>
-            <li class="list-group-item"><span class="badge bg-danger">Delete</span> Червен бутон, който сочи към задача №7</li>
+            <li class="list-group-item"><span class="badge bg-info text-dark">Details</span> Светлосин бутон, който сочи към задача №4, с URL: <span class="badge bg-primary">/posts/details/:id</span></li>
+            <li class="list-group-item"><span class="badge bg-warning text-dark">Edit</span> Оранжев бутон, който сочи към задача №5, с URL: <span class="badge bg-primary">/posts/edit/:id</span></li>
+            <li class="list-group-item"><span class="badge bg-danger">Delete</span> Червен бутон, който сочи към задача №7, с URL: <span class="badge bg-primary">/posts/delete/:id</span></li>
         </ul>
 
-        <p>Пример:</p>
-        <img src="/images/Fixed-Header-Table.jpg" class="img-fluid">
+        <p>Също така трябва да има и бутон <span class="badge bg-primary">Create</span>, който сочи към задача № 2, с URL: <span class="badge bg-primary">/posts/create</span></p>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Пример:
+          </div>
+          <div class="card-body">
+            <img src="/images/AllPosts.png" class="img-fluid">
+          </div>
+        </div>
 
         <p>Полезни линкове:</p>
         <div class="list-group">
-            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/content/tables/">Таблица</a>
-            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Бутони</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/content/tables/">Tables</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
         </div>
       </div>
     </div>
@@ -32,12 +39,30 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="task-2">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-          2. Визуализиране на страница за създаване на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">5</span>
+        2. Визуализиране на страница за създаване на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">5</span>
       </button>
     </h2>
     <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="task-2" data-bs-parent="#accordion">
       <div class="accordion-body">
+        <p>При <span class="badge bg-primary">GET</span> заявка на адрес <span class="badge bg-primary">/posts/create</span> трябва да се визуализира страница за създаване на нова публикация. 
+        Страницата трябва да съдържа форма с две input полета - Title и Description, както и бутон <span class="badge bg-primary">Create</span>. Всяко input поле задължително трябва да има следните атрибути - id и name, които съответно да са равни на title или description. 
+        Също така формата трябва да има следните атрибути <span class="badge bg-primary">method="post"</span> и <span class="badge bg-primary">action="/posts/create"</span>.
+        </p>
 
+        <div class="card mb-4">
+          <div class="card-header">
+            Пример:
+          </div>
+          <div class="card-body">
+            <img src="/images/Create.png" class="img-fluid mb-3">
+          </div>
+        </div>
+
+        <p>Полезни линкове:</p>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/forms/overview/">Forms</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
+        </div>
       </div>
     </div>
   </div>
@@ -45,11 +70,40 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="task-3">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-          3. Създаване на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">20</span>
+        3. Създаване на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">20</span>
       </button>
     </h2>
     <div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="task-3" data-bs-parent="#accordion">
       <div class="accordion-body">
+        <p>Тази задача е продължение на задача №2 и задължително трябва да сте я изпълнили, за да продължите с текущата.</p>
+        
+        <p>
+          Двете полета Title и Description са задължителни. Ако някое от тях липсва, при опит да се създаде нова публикация, трябва да покажем страница за грешка, със съобщение <span class="badge bg-danger">Post title or description is not valid.</span>. 
+          Ако успешно запишем нова публикация, трябва да бъдем пренасочени към URL <span class="badge bg-primary">/posts</span>, където показваме всички публикации.
+        </p>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Примери:
+          </div>
+          <div class="card-body">
+            Страница за създаване на публикация:
+            <img src="/images/Create.png" class="img-fluid mb-3">
+
+            При невалидна публикация:
+            <img src="/images/InvalidPost.png" class="img-fluid mb-3">
+
+            След успешно създаване на публикация, трябва да ни пренасочи към следната страница:
+            <img src="/images/AllPosts.png" class="img-fluid mb-3">
+          </div>
+        </div>
+
+        <p>Полезни линкове:</p>
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/forms/overview/">Forms</a>
+          <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/alerts/">Alerts</a>
+          <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
+        </div>
 
       </div>
     </div>
@@ -58,12 +112,38 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="task-4">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-          4. Визуализиране на страница за детайлите на една публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">10</span>
+        4. Визуализиране на страница за детайлите на една публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">10</span>
       </button>
     </h2>
     <div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="task-4" data-bs-parent="#accordion">
       <div class="accordion-body">
+        <p>При <span class="badge bg-primary">GET</span> заявка на адрес <span class="badge bg-primary">/posts/details/:id</span> трябва да се визуализира страница за детайлите на една публикация. 
+        При отварянето на страницата, трябва да проверим дали съществува публикация с полученото ID. Ако такава не съществува, трябва да покажем страница за грешка със следното съобщение <span class="badge bg-danger">Post with ID 'id' was not found.</span>.
+        Страницата трябва да съдържа Card компонент с Title и Description на текущата публикация, както и черен outline <span class="badge bg-dark">Back</span> бутон, който ни връща към страницата с всички публикации.
+        </p>
 
+        <div class="card mb-4">
+          <div class="card-header">
+            Примери:
+          </div>
+          <div class="card-body">
+            <p>Страница за детайли:</p>
+            <img src="/images/Details.png" class="img-fluid mb-3">
+            
+            При липсваща публикация:
+            <img src="/images/NotFound.png" class="img-fluid mb-3">
+
+            <p>След натискане на <span class="badge bg-dark">Back</span> бутона:</p>
+            <img src="/images/AllPosts.png" class="img-fluid mb-3">
+          </div>
+        </div>
+
+        <p>Полезни линкове:</p>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/card/">Card</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/alerts/">Alerts</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
+        </div>
       </div>
     </div>
   </div>
@@ -71,11 +151,40 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="task-5">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-          5. Визуализиране на страница за редактиране на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">10</span>
+        5. Визуализиране на страница за редактиране на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">10</span>
       </button>
     </h2>
     <div id="collapse-5" class="accordion-collapse collapse" aria-labelledby="task-5" data-bs-parent="#accordion">
       <div class="accordion-body">
+        
+        <p>При <span class="badge bg-primary">GET</span> заявка на адрес <span class="badge bg-primary">/posts/edit/:id</span> трябва да се визуализира страница за редактиране на съществуваща публикация.
+        При отварянето на страницата, трябва да проверим дали съществува публикация с полученото ID. Ако такава не съществува, трябва да покажем страница за грешка със следното съобщение <span class="badge bg-danger">Post with ID 'id' was not found.</span>.
+        </p>
+
+        <p>
+        Страницата трябва да съдържа форма с две input полета - Title и Description, както и два бутона <span class="badge bg-dark">Back</span> и <span class="badge bg-warning">Edit</span>. Всяко input поле задължително трябва да има следните атрибути - id и name, които съответно да са равни на title или description. 
+        Всяко поле трябва да бъде попълнено автоматично със стойностите на текущата публикация. Също така формата трябва да има следните атрибути <span class="badge bg-primary">method="post"</span> и <span class="badge bg-primary">action="/posts/edit/:id"</span>.
+        </p>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Пример:
+          </div>
+          <div class="card-body">
+            Страница за редактиране на публикация:
+            <img src="/images/Edit.png" class="img-fluid mb-3">
+
+            Съобщение за грешка, в случаите когато не съществува публикация с полученото ID:
+            <img src="/images/NotFound.png" class="img-fluid mb-3">
+          </div>
+        </div>
+
+        <p>Полезни линкове:</p>
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/forms/overview/">Forms</a>
+          <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/alerts/">Alerts</a>
+          <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
+        </div>
 
       </div>
     </div>
@@ -84,12 +193,48 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="task-6">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
-          6. Редактиране на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">35</span>
+        6. Редактиране на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">35</span>
       </button>
     </h2>
     <div id="collapse-6" class="accordion-collapse collapse" aria-labelledby="task-6" data-bs-parent="#accordion">
       <div class="accordion-body">
+        <p>Тази задача е продължение на задача №5 и задължително трябва да сте я изпълнили, за да продължите с текущата.</p>
+        
+        <p>
+          При <span class="badge bg-primary">POST</span> заявка на адрес <span class="badge bg-primary">/posts/edit/:id</span> трябва да проверим дали съществува публикация с полученото ID. Ако такава не съществува, трябва да покажем страница за грешка със следното съобщение <span class="badge bg-danger">Post with ID 'id' was not found.</span>.
+        </p>
 
+        <p>
+          Двете полета Title и Description са задължителни. Ако някое от тях липсва, при опит да се редактира съществуваща публикация, трябва да покажем страница за грешка, със съобщение <span class="badge bg-danger">Post title or description is not valid.</span>. 
+          Ако успешно редактираме текущата публикация, трябва да бъдем пренасочени към URL <span class="badge bg-primary">/posts</span>, където показваме всички публикации.
+        </p>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Примери:
+          </div>
+          <div class="card-body">
+            Страница за редактиране на публикация:
+            <img src="/images/Edit.png" class="img-fluid mb-3">
+
+            При липсваща публикация:
+            <img src="/images/NotFound.png" class="img-fluid mb-3">
+
+            При невалидна публикация:
+            <img src="/images/InvalidPost.png" class="img-fluid mb-3">
+
+            След успешно редактиране на публикация, трябва да ни пренасочи към следната страница:
+            <img src="/images/AllPosts.png" class="img-fluid mb-3">
+          </div>
+
+          <p>Полезни линкове:</p>
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/forms/overview/">Forms</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/alerts/">Alerts</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
@@ -97,11 +242,44 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="task-7">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7">
-          7. Визуализиране на страница за изтриване на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">10</span>
+        7. Визуализиране на страница за изтриване на публикация <span class="badge rounded-pill bg-success" style="position: absolute; right: 50px;">10</span>
       </button>
     </h2>
     <div id="collapse-7" class="accordion-collapse collapse" aria-labelledby="task-7" data-bs-parent="#accordion">
       <div class="accordion-body">
+
+        <p>При <span class="badge bg-primary">GET</span> заявка на адрес <span class="badge bg-primary">/posts/delete/:id</span> трябва да се визуализира страница за изтриване на съществуваща публикация.
+        При отварянето на страницата, трябва да проверим дали съществува публикация с полученото ID. Ако такава не съществува, трябва да покажем страница за грешка със следното съобщение <span class="badge bg-danger">Post with ID 'id' was not found.</span>.
+        </p>
+
+        <p>
+        Страницата трябва да съдържа Card компонент с Title и Description на текущата публикация, Alert компонент със съобщение <span class="badge bg-danger">Are you sure?</span>, както и два бутона:
+        </p>
+        
+        <ul>
+          <li><span class="badge bg-dark">Back</span> бутон, който ни връща към страницата с всички публикации</li>
+          <li><span class="badge bg-danger">Delete</span> бутон, който е във форма с атрибути <span class="badge bg-primary">method="post"</span> и <span class="badge bg-primary">action="/posts/delete/:id"</span></li>
+        </ul>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Пример:
+          </div>
+          <div class="card-body">
+            Страница за изтриване на публикация:
+            <img src="/images/Delete.png" class="img-fluid mb-3">
+
+            Съобщение за грешка, в случаите когато не съществува публикация с полученото ID:
+            <img src="/images/NotFound.png" class="img-fluid mb-3">
+          </div>
+        </div>
+
+        <p>Полезни линкове:</p>
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/card/">Card</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/alerts/">Alerts</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
+        </div>
 
       </div>
     </div>
@@ -115,6 +293,37 @@
     </h2>
     <div id="collapse-8" class="accordion-collapse collapse" aria-labelledby="task-8" data-bs-parent="#accordion">
       <div class="accordion-body">
+        <p>Тази задача е продължение на задача №7 и задължително трябва да сте я изпълнили, за да продължите с текущата.</p>
+        
+        <p>
+          При <span class="badge bg-primary">POST</span> заявка на адрес <span class="badge bg-primary">/posts/delete/:id</span> трябва да проверим дали съществува публикация с полученото ID. Ако такава не съществува, трябва да покажем страница за грешка със следното съобщение <span class="badge bg-danger">Post with ID 'id' was not found.</span>.
+        </p>
+
+        <p>
+          Ако съществува такава публикация трябва да я изтрием от нашия масив с публикации, след което трябва да бъдем пренасочени към URL <span class="badge bg-primary">/posts</span>, където показваме всички публикации.
+        </p>
+
+        <div class="card mb-4">
+          <div class="card-header">
+            Примери:
+          </div>
+          <div class="card-body">
+            Страница за изтриване на публикация:
+            <img src="/images/Delete.png" class="img-fluid mb-3">
+
+            При липсваща публикация:
+            <img src="/images/NotFound.png" class="img-fluid mb-3">
+
+            След успешно изтриване на публикация, трябва да ни пренасочи към следната страница:
+            <img src="/images/AllPosts.png" class="img-fluid mb-3">
+          </div>
+
+          <p>Полезни линкове:</p>
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/card/">Card</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/alerts/">Alerts</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://getbootstrap.com/docs/5.1/components/buttons/">Buttons</a>
+          </div>
 
       </div>
     </div>

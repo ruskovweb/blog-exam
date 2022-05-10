@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "test:chrome": "npx nightwatch tests --env chrome",
+    "test:firefox": "npx nightwatch tests --env firefox"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,11 @@
   "dependencies": {
     "express": "^4.18.1",
     "express-handlebars": "^6.0.5",
+    "nightwatch": "^2.1.4",
     "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "chromedriver": "^99.0.0",
+    "geckodriver": "^3.0.1"
   }
 }

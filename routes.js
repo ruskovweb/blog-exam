@@ -2,14 +2,14 @@ import { Router } from "express";
 
 const router = Router();
 
-let posts   = [
+let counter = 2;
+let posts = [
     {
         id: 1,
         title: "This is my first blog post",
         description: "Hello to my first blog post!"
     }
 ];
-let counter = 2;
 
 /*
     Home page:
@@ -47,7 +47,7 @@ router.get("/", function(req, res) {
     GET     /posts
 */
 router.get("/posts", function(req, res) {
-    res.render("posts");
+    res.render("posts", { posts });
 });
 
 export default router;

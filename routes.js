@@ -21,19 +21,19 @@ router.get("/", function(req, res) {
 
 /* 
     Read:
-    GET     /posts/:id
+    GET     /posts/details/:id
 */
 
 /* 
     Update:
     GET     /posts/edit/:id
-    PATCH   /posts/edit/:id
+    POST    /posts/edit/:id
 */
 
 /* 
     Delete:
     GET     /posts/delete/:id
-    DELETE  /posts/delete/:id
+    POST    /posts/delete/:id
 */
 
 /* 

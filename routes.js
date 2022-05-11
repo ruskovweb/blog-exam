@@ -17,7 +17,7 @@ let posts = [
 */
 router.get("/", function(req, res) {
     // Replace the 'name' property with your first and last name.
-    res.render("home", { name: "Dimitar Ruskov" });
+    res.render("home", { name: "Yordan Yordanov" });
 });
 
 /* 

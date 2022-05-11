@@ -25,7 +25,10 @@ router.get("/", function(req, res) {
     GET     /posts/create
     POST    /posts/create
 */
-
+router.get("/posts/create", function(req, res) {
+    // Replace the 'name' property with your first and last name.
+    res.render("create");
+});
 /* 
     Read:
     GET     /posts/details/:id

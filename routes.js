@@ -33,7 +33,7 @@ router.post("/posts/create", function(req, res) {
     let post = req.body;
 
     if (post.title === undefined || post.title.length == 0 || post.description == undefined || post.description.length == 0) {
-        res.render("error", { msg: "All input boxes are required to have valid data!" });
+        res.render("error", { msg: "Post title or description is not valid." });
         return;
     }
 
@@ -49,7 +49,7 @@ router.get("/posts/details/:id", function(req, res) {
     let post = posts.filter(e => e.id == req.params.id);
 
     if (post.length == 0) {
-        res.render("error", { msg: `Post with id ${req.params.id} was not found!` });
+        res.render("error", { msg: `Post with ID '${req.params.id}' was not found.` });
         return;
     }
 
@@ -65,7 +65,7 @@ router.get("/posts/edit/:id", function(req, res) {
     let post = posts.filter(e => e.id == req.params.id);
 
     if (post.length == 0) {
-        res.render("error", { msg: `Post with id ${req.params.id} was not found!` });
+        res.render("error", { msg: `Post with ID '${req.params.id}' was not found.` });
         return;
     }
 
@@ -76,14 +76,14 @@ router.post("/posts/edit/:id", function(req, res) {
     let post = req.body;
 
     if (post.title === undefined || post.title.length == 0 || post.description == undefined || post.description.length == 0) {
-        res.render("error", { msg: "All input boxes are required to have valid data!" });
+        res.render("error", { msg: "Post title or description is not valid." });
         return;
     }
 
     let postId = posts.findIndex(e => e.id == req.params.id);
 
     if (postId == -1) {
-        res.render("error", { msg: `Post with id ${req.params.id} was not found!` });
+        res.render("error", { msg: `Post with ID '${req.params.id}' was not found.` });
         return;
     }
 
@@ -101,7 +101,7 @@ router.get("/posts/delete/:id", function(req, res) {
     let post = posts.filter(e => e.id == req.params.id);
 
     if (post.length == 0) {
-        res.render("error", { msg: `Post with id ${req.params.id} was not found!` });
+        res.render("error", { msg: `Post with ID '${req.params.id}' was not found.` });
         return;
     }
 
@@ -112,7 +112,7 @@ router.post("/posts/delete/:id", function(req, res) {
     let postId = posts.findIndex(e => e.id == req.params.id);
 
     if (postId == -1) {
-        res.render("error", { msg: `Post with id ${req.params.id} was not found!` });
+        res.render("error", { msg: `Post with ID '${req.params.id}' was not found.` });
         return;
     }
 

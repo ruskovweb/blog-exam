@@ -11,25 +11,39 @@ let posts = [
     }
 ];
 
-/*
-    Home page:
-    GET     /
-*/
+
 router.get("/", function(req, res) {
-    // Replace the 'name' property with your first and last name.
-    res.render("home", { name: "Dimitar Ruskov" });
+    
+    res.render("home", { name: "Daniel Mitich" });
 });
 
-/* 
-    Create:
-    GET     /posts/create
-    POST    /posts/create
-*/
+
+router.get("/posts/create", function(req, res) {
+    
+    res.render("create");
+});
+router.post("/posts/create", function(req, res) {
+    const post = req.body
+if (post.title == "" || post.description == "")
+{
+    res.render("error", {errorMessage:"Post title or description is not valid."});
+return;
+}
+
+post.id  = counter
+counter++
+posts.push(post)
+res.redirect("/posts");
+});
 
 /* 
     Read:
     GET     /posts/details/:id
 */
+router.get("/posts/details", function(req, res) {
+    
+    res.render("/details");
+});
 
 /* 
     Update:

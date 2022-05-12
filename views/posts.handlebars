@@ -1,1 +1,27 @@
-<h1>Show all posts here</h1>
+ <a href="/posts/create" type="link" class="btn btn-primary">Create</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each posts}}
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.title}}</td>
+      <td>{{this.description}}</td>
+      
+        <td>
+            <a href="/posts/details/{{this.id}}" type="link" class="btn btn-primary">Details</a>
+            <a href="/posts/edit/{{this.id}}" type="link`" class="btn btn-warning">Edit</a>
+            <a href="/posts/delete/{{this.id}}" type="button" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>

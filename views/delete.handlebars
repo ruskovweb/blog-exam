@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title}}</h5>
+    <p class="card-text">{{ post.description}}</p>
+    
+    <form method="post" action="/posts/delete/{{post.id}}"> 
+        <a href="/posts" type="link" class="btn btn-outline-dark">Back</a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+</div>

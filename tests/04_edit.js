@@ -6,31 +6,31 @@ describe('Edit a post', function() {
         browser.url(`${config.baseUrl}/posts/edit/1`);
         
         // Form
-        browser.expect.element('main .container > form').to.be.present.after(1000);
-        browser.expect.element('main .container > form').to.have.attribute('method').equals('post');
-        browser.expect.element('main .container > form').to.have.attribute('action').equals('/posts/edit/1');
+        browser.waitForElementPresent('main .container > form', 1000);
+        browser.verify.attributeEquals('main .container > form', 'method', 'post');
+        browser.verify.attributeEquals('main .container > form', 'action', '/posts/edit/1');
 
         // Title
-        browser.expect.element('main .container > form > div:nth-child(1) label').text.to.equal('Title');
-        browser.expect.element('main .container > form > div:nth-child(1) input').to.have.attribute('id').equals('title');
-        browser.expect.element('main .container > form > div:nth-child(1) input').to.have.attribute('name').equals('title');
-        browser.expect.element('main .container > form > div:nth-child(1) input').to.have.value.that.equals('This is my first blog post')
+        browser.verify.textEquals('main .container > form > div:nth-child(1) label', 'Title');
+        browser.verify.attributeEquals('main .container > form > div:nth-child(1) input', 'id', 'title');
+        browser.verify.attributeEquals('main .container > form > div:nth-child(1) input', 'name', 'title');
+        browser.verify.valueEquals('main .container > form > div:nth-child(1) input', 'This is my first blog post')
 
         // Description
-        browser.expect.element('main .container > form > div:nth-child(2) label').text.to.equal('Description');
-        browser.expect.element('main .container > form > div:nth-child(2) input').to.have.attribute('id').equals('description');
-        browser.expect.element('main .container > form > div:nth-child(2) input').to.have.attribute('name').equals('description');
-        browser.expect.element('main .container > form > div:nth-child(2) input').to.have.value.that.equals('Hello and Welcome to my first blog post!')
+        browser.verify.textEquals('main .container > form > div:nth-child(2) label', 'Description');
+        browser.verify.attributeEquals('main .container > form > div:nth-child(2) input', 'id', 'description');
+        browser.verify.attributeEquals('main .container > form > div:nth-child(2) input', 'name', 'description');
+        browser.verify.valueEquals('main .container > form > div:nth-child(2) input', 'Hello and Welcome to my first blog post!')
 
         // Back button
-        browser.expect.element('main .container > form a.btn.btn-outline-dark').to.be.visible;
-        browser.expect.element('main .container > form a.btn.btn-outline-dark').text.to.equal('Back');
-        browser.expect.element('main .container > form a.btn.btn-outline-dark').to.have.attribute('href').equals('/posts');
+        browser.verify.visible('main .container > form a.btn.btn-outline-dark');
+        browser.verify.textEquals('main .container > form a.btn.btn-outline-dark', 'Back');
+        browser.verify.attributeEquals('main .container > form a.btn.btn-outline-dark', 'href', '/posts');
 
         // Create button
-        browser.expect.element('main .container > form button.btn.btn-warning').to.be.visible;
-        browser.expect.element('main .container > form button.btn.btn-warning').text.to.equal('Edit');
-        browser.expect.element('main .container > form button.btn.btn-warning').to.have.attribute('type').equals('submit');
+        browser.verify.visible('main .container > form button.btn.btn-warning');
+        browser.verify.textEquals('main .container > form button.btn.btn-warning', 'Edit');
+        browser.verify.attributeEquals('main .container > form button.btn.btn-warning', 'type', 'submit');
 
         browser.end();
     });
@@ -38,8 +38,8 @@ describe('Edit a post', function() {
     it('should show error page if the post doesn\'t exist', function(browser) {
         browser.url(`${config.baseUrl}/posts/edit/100000`);
         
-        browser.expect.element('main .container > div.alert.alert-danger').to.be.present.after(1000);
-        browser.expect.element('main .container > div.alert.alert-danger').text.to.equal('Post with ID \'100000\' was not found.');
+        browser.waitForElementPresent('main .container > div.alert.alert-danger', 1000);
+        browser.verify.textEquals('main .container > div.alert.alert-danger', 'Post with ID \'100000\' was not found.');
 
         browser.end();
     });
@@ -51,8 +51,8 @@ describe('Edit a post', function() {
 
         browser.click('main .container > form button.btn.btn-warning[type=submit]');
 
-        browser.expect.element('main .container > div.alert.alert-danger').to.be.present.after(1000);
-        browser.expect.element('main .container > div.alert.alert-danger').text.to.equal('Post with ID \'100000\' was not found.');
+        browser.waitForElementPresent('main .container > div.alert.alert-danger', 1000);
+        browser.verify.textEquals('main .container > div.alert.alert-danger', 'Post with ID \'100000\' was not found.');
 
         browser.end();
     });
@@ -60,12 +60,12 @@ describe('Edit a post', function() {
     it('should redirect to all posts when click on the back button', function(browser) {
         browser.url(`${config.baseUrl}/posts/edit/1`);
         
-        browser.expect.element('main .container > form').to.be.present.after(1000);
+        browser.waitForElementPresent('main .container > form', 1000);
 
         browser.click('main .container > form a.btn.btn-outline-dark');
 
-        browser.expect.element('main .container').to.be.present.after(1000);
-        browser.expect.url().to.be.equal(`${config.baseUrl}/posts`);
+        browser.waitForElementPresent('main .container', 1000);
+        browser.verify.urlEquals(`${config.baseUrl}/posts`);
 
         browser.end();
     });
@@ -73,15 +73,15 @@ describe('Edit a post', function() {
     it('should show error page if the title is empty', function(browser) {
         browser.url(`${config.baseUrl}/posts/edit/1`);
         
-        browser.expect.element('main .container > form').to.be.present.after(1000);
+        browser.waitForElementPresent('main .container > form', 1000);
 
         browser.setValue('main .container > form > div:nth-child(1) input', '');
         browser.setValue('main .container > form > div:nth-child(2) input', 'With my new cool description');
 
         browser.click('main .container > form button.btn.btn-warning[type=submit]');
 
-        browser.expect.element('main .container > div.alert.alert-danger').to.be.present.after(1000);
-        browser.expect.element('main .container > div.alert.alert-danger').text.to.equal('Post title or description is not valid.');
+        browser.waitForElementPresent('main .container > div.alert.alert-danger', 1000);
+        browser.verify.textEquals('main .container > div.alert.alert-danger', 'Post title or description is not valid.');
 
         browser.end();
     });
@@ -89,15 +89,15 @@ describe('Edit a post', function() {
     it('should show error page if the description is empty', function(browser) {
         browser.url(`${config.baseUrl}/posts/edit/1`);
         
-        browser.expect.element('main .container > form').to.be.present.after(1000);
+        browser.waitForElementPresent('main .container > form', 1000);
 
         browser.setValue('main .container > form > div:nth-child(1) input', 'My new post');
         browser.setValue('main .container > form > div:nth-child(2) input', '');
 
         browser.click('main .container > form button.btn.btn-warning[type=submit]');
 
-        browser.expect.element('main .container > div.alert.alert-danger').to.be.present.after(1000);
-        browser.expect.element('main .container > div.alert.alert-danger').text.to.equal('Post title or description is not valid.');
+        browser.waitForElementPresent('main .container > div.alert.alert-danger', 1000);
+        browser.verify.textEquals('main .container > div.alert.alert-danger', 'Post title or description is not valid.');
 
         browser.end();
     });
@@ -105,25 +105,25 @@ describe('Edit a post', function() {
     it('should edit existing post', function(browser) {
         browser.url(`${config.baseUrl}/posts/edit/1`);
         
-        browser.expect.element('main .container > form').to.be.present.after(1000);
+        browser.waitForElementPresent('main .container > form', 1000);
 
         browser.setValue('main .container > form > div:nth-child(1) input', 'My edited post');
         browser.setValue('main .container > form > div:nth-child(2) input', 'With my edited cool description!');
 
         browser.click('main .container > form button.btn.btn-warning[type=submit]');
 
-        browser.expect.element('main .container > table').to.be.present.after(1000);
-        browser.expect.url().to.be.equal(`${config.baseUrl}/posts`);
+        browser.waitForElementPresent('main .container > table', 1000);
+        browser.verify.urlEquals(`${config.baseUrl}/posts`);
 
-        browser.expect.elements('main .container > table tbody tr').count.to.equal(2);
+        browser.verify.elementsCount('main .container > table tbody tr', 2);
 
-        browser.expect.element('main .container > table tbody tr:nth-child(1) th:nth-child(1)').text.to.equal('1');
-        browser.expect.element('main .container > table tbody tr:nth-child(1) td:nth-child(2)').text.to.equal('My edited post');
-        browser.expect.element('main .container > table tbody tr:nth-child(1) td:nth-child(3)').text.to.equal('With my edited cool description!');
+        browser.verify.textEquals('main .container > table tbody tr:nth-child(1) th:nth-child(1)', '1');
+        browser.verify.textEquals('main .container > table tbody tr:nth-child(1) td:nth-child(2)', 'My edited post');
+        browser.verify.textEquals('main .container > table tbody tr:nth-child(1) td:nth-child(3)', 'With my edited cool description!');
 
-        browser.expect.element('main .container > table tbody tr:nth-child(2) th:nth-child(1)').text.to.equal('2');
-        browser.expect.element('main .container > table tbody tr:nth-child(2) td:nth-child(2)').text.to.equal('My new post');
-        browser.expect.element('main .container > table tbody tr:nth-child(2) td:nth-child(3)').text.to.equal('With my cool description');
+        browser.verify.textEquals('main .container > table tbody tr:nth-child(2) th:nth-child(1)', '2');
+        browser.verify.textEquals('main .container > table tbody tr:nth-child(2) td:nth-child(2)', 'My new post');
+        browser.verify.textEquals('main .container > table tbody tr:nth-child(2) td:nth-child(3)', 'With my cool description');
 
         browser.end();
     });
